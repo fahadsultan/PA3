@@ -18,7 +18,7 @@ public class BinaryTree {
      * Constructs an empty binary tree.
      */
     public BinaryTree() {
-        root = null;
+        
     }
 
     /**
@@ -34,7 +34,7 @@ public class BinaryTree {
      * @return the level order traversal of the tree.
      */
     public String levelOrderTraversal() {
-        return levelOrderTraversalHelper(root, "");
+        
     }
 
     /** 
@@ -42,21 +42,7 @@ public class BinaryTree {
      */
     private String levelOrderTraversalHelper(Node node, String result) {
         
-        Queue queue = new Queue();
-        queue.enqueue(node);
 
-        while (!queue.isEmpty()) {
-            Node current = queue.dequeue();
-            result += current.value + " ";
-            if (current.left != null) {
-                queue.enqueue(current.left);
-            }
-            if (current.right != null) {
-                queue.enqueue(current.right);
-            }
-        }
-
-        return result;
     }
 
     /**
@@ -70,31 +56,6 @@ public class BinaryTree {
      */
     public void add(int value) {
 
-        Node newNode = new Node(value);
-
-        if (root == null) {
-            root = newNode;
-            return;
-        }
-
-        Queue queue = new Queue();
-        queue.enqueue(root);
-
-        while (!queue.isEmpty()) {
-            Node current = queue.dequeue();
-            if (current.left == null) {
-                current.left = newNode;
-                return;
-            } else {
-                queue.enqueue(current.left);
-            }
-            if (current.right == null) {
-                current.right = newNode;
-                return;
-            } else {
-                queue.enqueue(current.right);
-            }
-        }
 
     }
 
@@ -118,43 +79,19 @@ public class BinaryTree {
      */
     public void invert() {
 
-        Queue queue = new Queue();
-        queue.enqueue(root);
-
-        while (!queue.isEmpty()) {
-            Node current = queue.dequeue();
-            Node temp = current.left;
-            current.left = current.right;
-            current.right = temp;
-            if (current.left != null) {
-                queue.enqueue(current.left);
-            }
-            if (current.right != null) {
-                queue.enqueue(current.right);
-            }
-        }
+       
     }
 
     public int getHeight() {
-        return getHeightHelper(root);
+        
     }
 
     /** Counts the height of the tree 
      *  Height is defined as the number of edges in the longest path from the root to a leaf node. 
      */
     private int getHeightHelper(Node node) {
-        if (node == null) {
-            return -1;
-        } else {
-            int leftHeight = getHeightHelper(node.left);
-            int rightHeight = getHeightHelper(node.right);
 
-            if (leftHeight > rightHeight) {
-                return leftHeight + 1;
-            } else {
-                return rightHeight + 1;
-            }
-        }
+        
     }
 
     public static void main(String[] args) {
